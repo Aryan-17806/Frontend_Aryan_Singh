@@ -1,0 +1,60 @@
+Notes on HTML List Types
+1. Unordered List (<ul>)
+
+Displays items with bullets (●, ○, etc.).
+
+Best for items where order doesn’t matter.
+
+Example:
+
+<ul>
+  <li>Apple</li>
+  <li>Banana</li>
+  <li>Orange</li>
+</ul>
+
+2. Ordered List (<ol>)
+
+Displays items with numbers or letters.
+
+Best for steps, rankings, or sequences.
+
+Example:
+
+<ol>
+  <li>First step</li>
+  <li>Second step</li>
+  <li>Third step</li>
+</ol>
+
+
+Types:
+
+type="1" → Numbers (default: 1,2,3,…)
+
+type="A" → Uppercase letters (A,B,C,…)
+
+type="a" → Lowercase letters (a,b,c,…)
+
+type="I" → Uppercase Roman (I,II,III,…)
+
+type="i" → Lowercase Roman (i,ii,iii,…)
+
+3. Description List (<dl>)
+
+Used for terms and their definitions.
+
+Structure:
+
+<dt> → Defines the term.
+
+<dd> → Defines the description.
+
+Example:
+
+<dl>
+  <dt>HTML</dt>
+  <dd>Structure of web pages.</dd>
+  <dt>CSS</dt>
+  <dd>Used for styling web pages.</dd>
+</dl>
