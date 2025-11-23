@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Dark Gallery Page</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      text-align: center;
+      padding-top: 40px;
+    }
+    h3 {
+      color: #58a6ff;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      margin: 0 auto;
+      width: 340px;
+      border: 2px solid #30363d;
+      background: #161b22;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .box {
+      border: 1px solid #30363d;
+      width: 130px;
+      height: 130px;
+      display: inline-block;
+      vertical-align: top;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #21262d;
+      margin: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+      border-color: #58a6ff;
+    }
+
+    .box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 8px 16px;
+      border: 2px solid #58a6ff;
+      background: transparent;
+      color: #58a6ff;
+      border-radius: 25px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: #58a6ff;
+      color: #0d1117;
+      box-shadow: 0 0 10px #58a6ff;
+    }
+
+    #status {
+      font-size: 0.9rem;
+      color: #8b949e;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h3>🐶 Dark Dog Gallery</h3>
+
+  <div class="container">
+    <div class="box left">
+      <img id="leftImg" alt="Left Dog">
+    </div>
+    <div class="box right">
+      <img id="rightImg" alt="Right Dog">
+    </div>
+    <div id="status"></div>
+    <button onclick="getImages()">Get Images</button>
+  </div>
+
+  <script>
+    async function getImages() {
+      const leftImg = document.getElementById('leftImg');
+      const rightImg = document.getElementById('rightImg');
+      const status = document.getElementById('status');
+      status.textContent = 'Loading...';
+      leftImg.src = rightImg.src = '';
+
+      try {
+        const res = await fetch('https://dog.ceo/api/breeds/image/random/2');
+        if (!res.ok) throw new Error('Network error');
+
+        const data = await res.json();
+        leftImg.src = data.message[0];
+        rightImg.src = data.message[1];
+
+        leftImg.onload = rightImg.onload = () => status.textContent = '';
+        leftImg.onerror = rightImg.onerror = () => status.textContent = 'Failed to load images';
+      } catch (e) {
+        console.error(e);
+        status.textContent = 'Error fetching images';
+      }
+    }
+
+    // Load on start
+    getImages();
+  </script>
+</body>
+</html>
