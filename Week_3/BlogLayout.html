@@ -1,0 +1,51 @@
+<style>
+  .blog-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .blog-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .blog-post {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 20px;
+    flex: 1 1 300px; 
+  }
+
+  @media (max-width: 900px) {
+    .blog-post {
+      flex: 1 1 calc(50% - 20px);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .blog-post {
+      flex: 1 1 100%;
+    }
+  }
+</style>
+
+<div class="blog-section">
+  <h2>Latest Articles</h2>
+  <div class="blog-grid">
+    <article class="blog-post">
+      <h3>Understanding Flexbox</h3>
+      <p>Flexbox is a one-dimensional layout method for laying out items in rows or columns.</p>
+    </article>
+    <article class="blog-post">
+      <h3>CSS Grid vs Flexbox</h3>
+      <p>Grid is for two-dimensional layouts, while Flexbox handles single dimensions better.</p>
+    </article>
+    <article class="blog-post">
+      <h3>Responsive Design 101</h3>
+      <p>Learn how to use media queries to make your site look great on any device.</p>
+    </article>
+  </div>
+</div>

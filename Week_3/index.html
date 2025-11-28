@@ -1,24 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<style>
+  * { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; }
+
+  .container {
+    display: flex;
+    min-height: 100vh;
+    font-family: sans-serif;
+  }
+
+  .sidebar {
+    background-color: #1e4a75;
+    color: rgb(250, 238, 238);
+    width: 250px;
+    padding: 20px;
+    flex-shrink: 0;
+  }
+
+  .sidebar ul { list-style: none; }
+  .sidebar li { margin-bottom: 15px; cursor: pointer; }
+
+  .content {
+    background-color: #f9fafa;
+    flex-grow: 1;
+    padding: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .layout-container {
+      flex-direction: column;
+    }
+    .sidebar {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>
 </head>
 <body>
-    <div class="sidebar">
-        <h2>Sidebar Menu</h2>
-        <ul>
-          <li>Home</li>
-          <li>Blogs</li>
-          <li>Products</li>
-          <li>Contact</li>
-        </ul>
-      </div>
-      <div class="content">
-        <h1>Main Content</h1>
-        <p>This is where your page content goes.</p>
-      </div>
-      
+
+<div class="container">
+  <div class="sidebar">
+    <h3>Dashboard</h3>
+    <ul>
+      <li>Home</li>
+      <li>Profile</li>
+      <li>Settings</li>
+    </ul>
+  </div>
+  <div class="content">
+    <h1>Welcome to the Main Content</h1>
+    <p>Resize the browser window to see the sidebar move to the top.</p>
+  </div>
+</div>
+
 </body>
 </html>

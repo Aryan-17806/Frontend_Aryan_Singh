@@ -1,0 +1,62 @@
+<style>
+    .card-container {
+      display: flex;
+      justify-content: center;
+      padding: 50px;
+      background-color: #f4f4f4;
+    }
+  
+    .product-card {
+      background: white;
+      width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin: 20px;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+  
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+  
+    .product-image {
+      width: 100%;
+      height: 200px;
+      background-color: #3498db;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+  
+    .card-details {
+      padding: 20px;
+    }
+  
+    .buy-btn {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+  
+  <div class="card-container">
+    <div class="product-card">
+      <div class="product-image">Product Image</div>
+      <div class="card-details">
+        <h3>Wireless Headphones</h3>
+        <p style="color: #666; font-size: 0.9em; margin: 10px 0;">
+          High-quality noise cancelling headphones with 20h battery life.
+        </p>
+        <h4 style="margin-bottom: 15px;">Rs 20000.00</h4>
+        <button class="buy-btn">Buy Now</button>
+      </div>
+    </div>
+  </div>
