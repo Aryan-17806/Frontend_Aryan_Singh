@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            background: #132b57;
+        }
+
+        .gallery {
+            background: #161719;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #mainImage {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .thumbnails img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .thumbnails img:hover {
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="gallery">
+        <img id="mainImage" src="https://images.unsplash.com/photo-1763760243463-cbfb66c7fcc3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM4fGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D">
+
+        <div class="thumbnails" id="thumbnailContainer">
+            <img src="https://plus.unsplash.com/premium_photo-1763482110336-afe8d4ac0bac?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDl8Q0R3dXdYSkFiRXd8fGVufDB8fHx8fA%3D%3D">
+            <img src="https://images.unsplash.com/photo-1764071289023-227898d0d827?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDEwfGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D">
+            <img src="https://images.unsplash.com/photo-1763661582858-f88094b11c63?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDM3fGJvOGpRS1RhRTBZfHxlbnwwfHx8fHw%3D">
+        </div>
+    </div>
+
+    <script>
+        const mainImage = document.getElementById("mainImage");
+        const thumbnails = document.getElementById("thumbnailContainer");
+
+        thumbnails.addEventListener("click", function(event) {
+            if (event.target.tagName === "IMG") {
+                const newSrc = event.target.getAttribute("data-src");
+                mainImage.src = newSrc;
+            }
+        });
+    </script>
+
+</body>
+</html>

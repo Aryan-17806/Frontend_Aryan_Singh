@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulated Fetch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f4f4f4;
+        }
+
+        .container {
+            padding: 20px 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        #output {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Simulated Data Fetch</h2>
+        <button onclick="loadData()">Fetch Data</button>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        function fetchData() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve("Simulated server response.");
+                }, 2000);
+            });
+        }
+
+        function loadData() {
+            document.getElementById("output").textContent = "Loading...";
+            
+            fetchData().then(result => {
+                document.getElementById("output").textContent = result;
+            });
+        }
+    </script>
+
+</body>
+</html>
