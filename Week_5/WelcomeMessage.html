@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 12: Welcome Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 90%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #welcomeOutput {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e0f7fa;
+            border: 1px solid #00bcd4;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome Message Generator</h1>
+        <p>Enter your name below:</p>
+        <input type="text" id="userNameInput" placeholder="Your Name">
+        <button onclick="displayWelcomeMessage()">Greet Me</button>
+        <div id="welcomeOutput"></div>
+    </div>
+
+    <script>
+        function displayWelcomeMessage() {
+            const name = document.getElementById('userNameInput').value.trim();
+            const outputDiv = document.getElementById('welcomeOutput');
+            
+            outputDiv.style.display = 'block';
+
+            if (name) {
+                outputDiv.textContent = `Hello, ${name}! Welcome to JavaScript.`;
+            } else {
+                outputDiv.textContent = "Please enter a valid name to proceed.";
+            }
+        }
+    </script>
+</body>
+</html>

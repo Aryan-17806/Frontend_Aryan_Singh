@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 13: Eligibility Checker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            padding: 10px;
+            margin-top: 10px;
+            width: 90%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 10px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button {
+            padding: 10px;
+            flex-grow: 1;
+        }
+        #eligibilityOutput {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Eligibility Checker (Age ≥ 18)</h1>
+
+        <input type="number" id="userAgeInput" placeholder="Enter your age" min="0">
+
+        <div class="button-group">
+            <button onclick="checkEligibility('if_else')">Check (If/Else)</button>
+            <button onclick="checkEligibility('ternary')">Check (Ternary)</button>
+        </div>
+
+        <div id="eligibilityOutput"></div>
+    </div>
+
+    <script>
+        function checkEligibility(method) {
+            const ageInput = document.getElementById('userAgeInput');
+            const age = parseInt(ageInput.value);
+            const outputDiv = document.getElementById('eligibilityOutput');
+            outputDiv.style.display = 'block';
+
+            if (isNaN(age) || age < 0) {
+                outputDiv.style.backgroundColor = "#ffebee"; 
+                outputDiv.style.border = "1px solid #f44336";
+                outputDiv.textContent = "Error: Please enter a valid number for age.";
+                return;
+            }
+
+            outputDiv.style.backgroundColor = "#e8f5e9";
+            outputDiv.style.border = "1px solid #4caf50";
+
+            let message = '';
+
+            if (method === 'if_else') {
+                if (age >= 18) {
+                    message = `[If/Else] Age ${age}: Eligible!`;
+                } else {
+                    message = `[If/Else] Age ${age}: Not Eligible.`;
+                }
+            } else if (method === 'ternary') {
+                message = `[Ternary] Age ${age}: ${age >= 18 ? 'Eligible!' : 'Not Eligible.'}`;
+            }
+
+            outputDiv.textContent = message;
+        }
+
+        document.getElementById('userAgeInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkEligibility('if_else');
+            }
+        });
+    </script>
+</body>
+</html>
