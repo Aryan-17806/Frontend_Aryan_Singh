@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keyframe Animation</title>
+<style>
+  .space-scene {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: #1d2918da;
+    overflow: hidden;
+  }
+  .rocket {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 60px;
+    content: url('https://via.placeholder.com/60x120/e74c3c/ffffff?text=Rocket');
+    transform: translateX(-50%);
+    animation: rocketLaunch 5s ease-in infinite;
+  }
+  .astronaut {
+    position: absolute;
+    top: 50px;
+    right: 100px;
+    width: 50px;
+    content: url('https://via.placeholder.com/50x50/3498db/ffffff?text=Astro');
+    animation: astronautFloat 6s ease-in-out infinite alternate;
+  }
+  @keyframes rocketLaunch {
+    0% { bottom: 20px; transform: translateX(-50%); }
+    100% { bottom: 600px; transform: translateX(-50%) scale(0.5); opacity: 0; }
+  }
+  @keyframes astronautFloat {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-30px) rotate(15deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="space-scene">
+  <div class="rocket"></div>
+  <div class="astronaut"></div>
+</div>
+
+</body>
+</html>

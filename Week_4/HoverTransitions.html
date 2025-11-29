@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hover Transitions</title>
+<style>
+  body { font-family: sans-serif; padding: 50px; }
+  .nav-menu {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  .nav-item {
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: #333;
+    border: 2px solid #ddd;
+    transition: all 0.3s ease-in-out;
+    display: block;
+  }
+  .nav-item:hover {
+    background-color: #0aa851;
+    color: white;
+    border-color: #6c5ce7;
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px -10px rgba(108, 92, 231, 0.5);
+  }
+</style>
+</head>
+<body>
+
+<ul class="nav-menu">
+  <li><a href="" class="nav-item">Home</a></li>
+  <li><a href="" class="nav-item">Features</a></li>
+  <li><a href="" class="nav-item">Pricing</a></li>
+  <li><a href="" class="nav-item">Download App</a></li>
+</ul>
+
+</body>
+</html>
